@@ -1,0 +1,17 @@
+<div class="intro">
+    <p>
+    {{description}}
+    </p>
+</div>
+
+<h2>Description</h2>
+
+<p>{{description}}</p>
+
+```
+YUI().use('gallery-inview-event',function (Y) {                
+        Y.one('#mynode').on('inview',function(){
+        	Y.one('#mynode').setContent('this node is now in view');
+        });
+});
+```

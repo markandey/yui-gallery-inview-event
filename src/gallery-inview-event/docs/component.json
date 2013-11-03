@@ -1,0 +1,11 @@
+{
+    "name"       : "gallery-inview-event",
+    "displayName": "Gallery: gallery-inview-event",
+    "description": "This adds an event in system which triggerr when node scrolls into the view",
+    "author"     : [ "markandey" ],
+    "use"        : [ "gallery-inview-event" ],
+
+    "tags": [ "gallery" ],
+
+    "examples": []
+}
