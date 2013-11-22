@@ -1,29 +1,39 @@
-YUI.add('module-tests', function(Y) {
+YUI({
+	modules: {
+		'gallery-inview-event': {
+			fullpath: "/build/gallery-inview-event/gallery-inview-event.js"
+		}
+	}
+}).add('module-tests', function(Y) {
 
 	var suite = new Y.Test.Suite('gallery-inview-event');
 
 	suite.add(new Y.Test.Case({
 		name: 'basic sanity',
 		'setUp': function() {
+			console.log("==SETUP gallery-inview-event ===");
 			var that = this;
-			var input = '<div id="test-inview-div"><div style="height:9000px;">bing box</div><div id="mynode">small box</div></div>';
+			var input = '<div id="test-inview-div"><div style="height:9000px;border:1px solid red;">huge box</div><div id="mynode">small box</div></div>';
 			Y.one('body').append(Y.Node.create(input));
-			Y.one("#mynode").on('inview', function() {
-				Y.one("#mynode").setContent('yes i am in view');
-				that.inviewfired = true;
-			})
-			console.log('setup executed');
+
+			setTimeout(function() {
+				Y.one("#mynode").on('inview', function() {
+					Y.one("#mynode").setContent('yes i am in view');
+					that.inviewfired = true;
+					console.log("that.inviewfired = true;");
+				})
+				window.scrollTo(0, 20000);
+			}, 1000);
+
 		},
 		'test fire': function() {
 			var that = this;
-			//Y.one('body').simulate('scroll',10000);
 			this.wait(function() {
-				Y.Assert.areEqual(that.inviewfired,true);
-			}, 1000);
+				Y.Assert.areEqual(that.inviewfired, true);
+			}, 2000);
 		},
 		'tearDown': function() {
-			console.log('teardown.....');
-			//Y.one('#test-inview-div').remove();
+
 		},
 	}));
 

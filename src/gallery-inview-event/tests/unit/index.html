@@ -12,8 +12,12 @@
 <script>
 YUI({
     coverage: ['gallery-inview-event'],
-    filter: (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw'
-}).use('test-console', 'test', 'module-tests', function(Y) {
+    filter: (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw', 
+    modules:{'gallery-inview-event':{
+                                        fullpath:"/build/gallery-inview-event/gallery-inview-event.js"
+                                        }
+                                }
+}).use('test-console', 'test', 'module-tests' ,function(Y) {
     
     (new Y.Test.Console()).render('#logger');
 
