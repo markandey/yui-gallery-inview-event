@@ -1,4 +1,5 @@
 YUI Gallery inview event
+==========================
 
 Fires when an elements scrolls into the view , this is a YUI module
 
