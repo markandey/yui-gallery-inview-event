@@ -29,7 +29,6 @@ var InViewEvent = {
             y = parseInt(y, 10) + parseInt(elm.offsetTop, 10);
             elm = elm.offsetParent;
         }
-        console.log('--->', y);
         return y;
     },
     '_attachedNode': [],
@@ -62,7 +61,6 @@ var InViewEvent = {
             if (t < scroll) {
                 that._attachedNode[i].notifier.fire();
             } else {
-                console.log('not fired', t, scroll);
                 newAttachedNodeList.push(that._attachedNode[i]);
             }
         }
